@@ -1,0 +1,56 @@
+﻿@model Document.Models.Requester
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<style>
+    body {
+        font-family: 'pilat light';
+        src: url('pilat light.otf') format('opentype');
+        font-palette: dark;
+    }
+
+
+    @@font-face {
+        font-family: 'pilat light';
+        src: url('pilat light.otf') format('opentype');
+    }
+
+
+</style>
+<div>
+    <h4>Requester</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MgrName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MgrName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MgrCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MgrCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LDap)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LDap)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.EmployeeCode">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

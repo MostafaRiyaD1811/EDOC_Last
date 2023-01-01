@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Document.Models.DomainAccount>
+
+@{
+    ViewData["Title"] = "Inbox";
+}
+
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">DOMAIN ACCOUNT</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+            </div>
+        </div>
+    </div>
+    <h2 class="subreq-title">Inbox</h2>
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100">
+            <div class="table-responsive">
+                <table class="table my-2">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequesterName)
+                            </th>
+                             <th>
+                                @Html.DisplayNameFor(model => model.RequesterDept)
+                            </th>
+                              <th>
+                                @Html.DisplayNameFor(model => model.RequesterJobTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequesterCompany)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedAt)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CurrentReviewer)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            
+
+                            
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                           @if (Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="15" class="nodatayet">
+
+                                    There's no requests yet
+
+                                </td>
+
+                            </tr>
+                        }
+        else
+        {
+                 
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterName)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterDept)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterJobTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterCompany)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CurrentReviewer)
+                                </td>
+                                <td>
+                                    @if (item.Status == "Approved")
+                                    {
+                                        <div class="approved">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Declined")
+                                    {
+                                        <div class="declined">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Pending")
+                                    {
+                                        <div class="pending">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+
+                                </td>
+                                
+
+                                @if (!(item.MgrStatus == Document.ViewModels.MgrStatuses.Approve) && !(item.ITMgrStatus == ITMgrStatuses.Approve) && !(item.ITAdminStatus == ITAdminStatuses.Approve))
+                                {
+                                    <td>
+                                        <div class="btn-group me-2">
+                                            <a asp-action="Edit" class="btn btn-sm btn-outline-secondary edit" asp-route-id="@item.Id">Edit</a>
+                                            <a asp-action="Details" class="btn btn-sm btn-outline-secondary details" asp-route-id="@item.Id">Details</a>
+                                            <a asp-action="Delete" class="btn btn-sm btn-outline-secondary delete" asp-route-id="@item.Id">Delete</a>
+                                        </div>
+                                    </td>
+
+                                }
+                                else
+                                {
+                                    <td>
+                                        <a asp-action="Details" class="btn btn-sm btn-outline-secondary details" asp-route-id="@item.Id">Details</a>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,77 @@
+﻿@using Document.ViewModels;
+@model Document.Models.JobPlanUpdate
+
+@{
+    ViewData["Title"] = "MgrEdit";
+}
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100">
+            <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-5 ">
+                <h5 class="approval-title">You have been asked to approve this request</h5>
+            </div>
+
+            <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+    <div class="col-md-4">
+
+        <form asp-action="MgrEdit">
+            <div asp-validation-summary="ModelOnly" ></div>
+            <input type="hidden" asp-for="Id" />
+
+            <textarea  hidden asp-for="Description" class="form-control"></textarea>
+             
+                <input  type="hidden" asp-for="ReqNumber" class="form-control" />
+            
+                <input  type="hidden" asp-for="RequesterName" class="form-control" />
+            <input type="hidden" asp-for="CurrentReviewerId" class="form-control" />
+            <input type="hidden" asp-for="RequesterId" class="form-control" />
+
+                <input  type="hidden" asp-for="RequesterMgrName" class="form-control" />
+          
+                <input  type="hidden" asp-for="CreatedAt" class="form-control" />
+          
+                <input  type="hidden" asp-for="CurrentReviewer" class="form-control" />
+            
+                <input  type="hidden" asp-for="Status" class="form-control" />
+              
+              
+                <input  type="hidden" asp-for="RequiredAction" class="form-control" />
+                <input  type="hidden" asp-for="JobPlanCode" class="form-control" />
+
+            <input type="hidden" asp-for="OldJobInterval" class="form-control" />
+            <input type="hidden" asp-for="NewJobInterval" class="form-control" />
+            <input type="hidden" asp-for="MaterialsAdded" class="form-control" />
+            <input type="hidden" asp-for="MaterialsRemoved" class="form-control" />
+                <input  type="hidden" asp-for="RequesterId" class="form-control" />
+              
+                <select  hidden asp-for="CurrentReviewer" class="form-control" asp-items="ViewBag.CurrentReviewerId"></select>
+
+
+            <div class="form-group">
+                <label asp-for="ApprovalNotes" class="control-lab">Add comment <span class="side-note">(Must leave your notes if the request to be declined)</span></label>
+                <textarea asp-for="ApprovalNotes" class="form-control"></textarea>
+                <span asp-validation-for="ApprovalNotes"></span>
+            </div>
+                        <div class="d-flex justify-content-center m-4">
+                <div>
+                                <input class="btn-gradient-approve" id="edit" type="submit" name="MgrStatuts" asp-for="MgrStatuts" value="@MgrStatuses.Approve">
+                </div>
+
+
+                <div>
+                                <input class="btn-gradient-submit" id="delete" type="submit" name="MgrStatuts" asp-for="MgrStatuts" value="@MgrStatuses.Decline">
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+</div></div></main>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,84 @@
+﻿@model Document.Models.DomainAccount
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<main class="col-md-9 col-lg-10  px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Delete Request</h1>
+    </div>
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100 del-details">
+            <div class="row">
+                <h5 style="color:#FF5F5F;" class="col-10">Are you sure you want to delete this request?</h5>
+                <form asp-action="Delete" class="col">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Delete" class="del btn btn-sm btn-outline-secondary" />
+
+                </form>
+            </div>
+            <div>
+                <br />
+                <div class="fade_rule"></div>
+                <br />
+
+                <dl class="row details-box">
+                    <div class="col-6">
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequesterName)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequesterName)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequesterPhone)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequesterPhone)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequesterCode)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequesterCode)
+                        </dd>
+                    </div>
+                    <div class="col-6">
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequesterExtension)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequesterExtension)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequesterDept)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequesterDept)
+                        </dd>
+
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequesterJobTitle)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequesterJobTitle)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequesterCompany)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequesterCompany)
+                        </dd>
+                    </div>
+                </dl>
+@*
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    <a asp-action="Index">Back to List</a>
+                </form>*@
+            </div>
+        </div>
+</main>

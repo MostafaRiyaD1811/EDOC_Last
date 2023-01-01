@@ -1,0 +1,78 @@
+﻿@model Document.Models.JobPlanUpdate
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<main class="col-md-9 col-lg-10  px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Request Details</h1>
+        @*<div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+        <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+        </div>
+        </div>*@
+    </div>
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100 del-details container">
+            <dl class="row details-box">
+                <div class="col-6">
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.ReqNumber)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.ReqNumber)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.RequesterName)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.RequesterName)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.RequesterMgrName)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.RequesterMgrName)
+                    </dd>
+                </div>
+                <div class="col-6">
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.CreatedAt)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.CreatedAt)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.ApprovalNotes)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.ApprovalNotes)
+                    </dd>
+                    <dt class="">
+                        Attaced Files
+                    </dt>
+                    @*<dd>
+                    <a asp-action="Files" class="btn btn-secondary btn-sm"  asp-route-id="@Model.ReqNumber">Download</a>
+
+                    </dd>*@
+                </div>
+            </dl>
+        </div>
+    </div>
+</main>
+

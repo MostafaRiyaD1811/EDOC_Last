@@ -1,0 +1,98 @@
+﻿@model Document.Models.TravelDesk
+
+@{
+    ViewData["Title"] = "MgrEdit";
+}
+
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100">
+            <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-5 ">
+                <h5 class="approval-title">You have been asked to approve this request</h5>
+            </div>
+
+            <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+    <div class="col-md-4">
+
+        <form asp-action="AdminMgrEdit">
+            <div asp-validation-summary="ModelOnly" ></div>
+
+            <input hidden asp-for="ReqNumber" class="form-control" />
+
+            <input hidden asp-for="Request" class="form-control" />
+            <input hidden asp-for="Attach" class="form-control" />
+
+            <input hidden asp-for="RequesterName" class="form-control" />
+
+            <input hidden asp-for="RequesterDept" class="form-control" />
+
+            <input hidden asp-for="Title" class="form-control" />
+
+            <input hidden asp-for="Nationality" class="form-control" />
+
+            <input hidden asp-for="RequestPurpose" class="form-control" />
+
+            <input hidden asp-for="CheckIn" class="form-control" />
+
+            <input hidden asp-for="CheckOut" class="form-control" />
+
+            <input hidden asp-for="MissionAddress" class="form-control" />
+
+            <input hidden asp-for="DestinationCountry" class="form-control" />
+
+            <input hidden asp-for="RequesterCode" class="form-control" />
+            <input hidden asp-for="RequestedFor" class="form-control" />
+
+            <input hidden asp-for="Remarks" class="form-control" />
+
+            <input hidden asp-for="Departure" class="form-control" />
+
+            <input hidden asp-for="ReturnBack" class="form-control" />
+
+            <input hidden asp-for="CreatedAt" class="form-control" />
+
+            <input hidden asp-for="CurrentReviewer" class="form-control" />
+
+            <input hidden asp-for="Status" class="form-control" />
+
+            <input hidden asp-for="ApprovalNotes" class="form-control" />
+
+            <select hidden asp-for="DeptAdminStatus" class="form-control"></select>
+
+
+            <input hidden asp-for="RequesterId" class="form-control" />
+
+            <select hidden asp-for="CurrentReviewerId" class="form-control" asp-items="ViewBag.CurrentReviewerId"></select>
+
+
+                        <div class="form-group">
+                            <label asp-for="ApprovalNotes" class="control-lab">Add comment <span class="side-note">(Must leave your notes if the request to be declined)</span></label>
+                            <textarea asp-for="ApprovalNotes" class="form-control"></textarea>
+                            <span asp-validation-for="ApprovalNotes"></span>
+                        </div>
+                        <div class="d-flex justify-content-center m-4">
+                <div>
+                                <input class="btn-gradient-approve" type="submit" name="DeptAdminStatus" asp-for="DeptAdminStatus" value="@DeptAdminStatuses.Approve">
+                </div>
+
+
+                <div >
+                                <input class="btn-gradient-submit" type="submit" name="DeptAdminStatus" asp-for="DeptAdminStatus" value="@DeptAdminStatuses.Decline">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</main>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

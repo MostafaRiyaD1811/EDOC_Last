@@ -1,0 +1,148 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\Voucher Details\**" />
+    <Content Remove="wwwroot\Voucher Details\**" />
+    <EmbeddedResource Remove="wwwroot\Voucher Details\**" />
+    <None Remove="wwwroot\Voucher Details\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Admin.Directory.directory_v1" Version="1.57.0.2849" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="RestSharp" Version="108.0.3" />
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.2.0" />
+    <PackageReference Include="System.DirectoryServices" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Voucher Details\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\assets\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\assets\js\dashboard.js" />
+    <None Include="wwwroot\assets\js\main.js" />
+    <None Include="wwwroot\assets\js\sidebars.js" />
+    <None Include="wwwroot\assets\vendor\aos%28animation%29\aos.js" />
+    <None Include="wwwroot\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.esm.js" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\assets\vendor\glightbox\js\glightbox.js" />
+    <None Include="wwwroot\assets\vendor\glightbox\js\glightbox.min.js" />
+    <None Include="wwwroot\assets\vendor\swiper\swiper-bundle.min.js" />
+    <None Include="wwwroot\css\.DS_Store" />
+    <None Include="wwwroot\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\fonts\.DS_Store" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\animated.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\core.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\icons.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\larger.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\list.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\path.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\less\variables.less" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <None Include="wwwroot\fonts\icomoon\demo-files\demo.js" />
+    <None Include="wwwroot\fonts\icomoon\fonts\icomoon.svg" />
+    <None Include="wwwroot\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <None Include="wwwroot\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <None Include="wwwroot\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <None Include="wwwroot\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <None Include="wwwroot\Images\.DS_Store" />
+    <None Include="wwwroot\Images\Bespoke Solutions-black.svg" />
+    <None Include="wwwroot\Images\Bespoke Solutions.svg" />
+    <None Include="wwwroot\Images\bg1.svg" />
+    <None Include="wwwroot\Images\Coins-black.svg" />
+    <None Include="wwwroot\Images\Coins.svg" />
+    <None Include="wwwroot\Images\Facility Management .svg" />
+    <None Include="wwwroot\Images\Facility Management-black.svg" />
+    <None Include="wwwroot\Images\footer-2.svg" />
+    <None Include="wwwroot\Images\Human resource-black.svg" />
+    <None Include="wwwroot\Images\Human resource.svg" />
+    <None Include="wwwroot\Images\Information Technology -black.svg" />
+    <None Include="wwwroot\Images\Information Technology.svg" />
+    <None Include="wwwroot\Images\Lock.svg" />
+    <None Include="wwwroot\Images\Magnifying glass-black.svg" />
+    <None Include="wwwroot\Images\Magnifying glass.svg" />
+    <None Include="wwwroot\Images\Menu %281%29-black.svg" />
+    <None Include="wwwroot\Images\Menu %281%29.svg" />
+    <None Include="wwwroot\Images\Person.svg" />
+    <None Include="wwwroot\Images\Security-black.svg" />
+    <None Include="wwwroot\Images\Security.svg" />
+    <None Include="wwwroot\Images\Shopping Cart-black.svg" />
+    <None Include="wwwroot\Images\Shopping Cart.svg" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\jquery-3.3.1.min.js" />
+    <None Include="wwwroot\js\main.js" />
+    <None Include="wwwroot\js\owl.carousel.min.js" />
+    <None Include="wwwroot\js\popper.min.js" />
+    <None Include="wwwroot\js\scrolling-nav.js" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,141 @@
+﻿@model Document.ViewModels.VoucherViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+
+    .input-validation-error {
+        border-bottom: 2px solid #FF5F5F !important;
+        color: #FF5F5F;
+        font-family: Pilat-demi;
+    }
+
+</style>
+
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">VOUCHERS</h1>
+       
+    </div>
+    <h2 class="subreq-title">Create New Request</h2>
+
+    <div class="container-fluid">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+
+            <!--<div class="row">
+                <div class="col-md-4">-->
+
+            <div class="form h-100">
+
+            <form enctype="multipart/form-data" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" ></div>
+
+                <div class="form-group form-input">
+                <label asp-for="VendorName" class="control-label"></label>
+                <input asp-for="VendorName" class="form-control"  type="text"/>
+                <span asp-validation-for="VendorName" ></span>
+            </div>
+            <div class="form-group form-input">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" ></span>
+            </div>
+                <div class="form-group form-input">
+                <label asp-for="InvoiceDate" class="control-label"></label>
+                <input asp-for="InvoiceDate" class="form-control" />
+                <span asp-validation-for="InvoiceDate" ></span>
+            </div>
+
+                <div class="form-group form-input">
+                    <label asp-for="Attachments" class="custom-file-label control-label"></label>
+                    <input asp-for="Attachments" multiple class="form-control custom-file-input" />
+                    <span asp-validation-for="Attachments" ></span>
+                    <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+                </div>
+                <div class="form-group form-input">
+                <label asp-for="BeneficiaryName" class="control-label"></label>
+                <input asp-for="BeneficiaryName" class="form-control" />
+                <span asp-validation-for="BeneficiaryName" ></span>
+            </div>
+                <div class="form-group form-input">
+                    <label asp-for="VendorNum" class="control-label"></label>
+                    <input asp-for="VendorNum" class="form-control" />
+                    <span asp-validation-for="VendorNum" ></span>
+                </div>
+
+                <div class="form-group form-input">
+                <label asp-for="Type" class="control-label"></label>                
+                <select asp-for="Type" class="form-select" onchange="yesnoCheck(this);">
+                    <option selected value="Employee">Employee</option>
+                    <option asp-for="Type" value="Emirates National Bank of Dubai SAE.">Emirates National Bank of Dubai SAE.</option>
+                    <option asp-for="Type" value="Emergency Labor Office">Emergency Labor Office</option>
+                    <option asp-for="Type" value="National Medical Insurance ( Azamy Suez Hospital )">National Medical Insurance ( Azamy Suez Hospital )</option>
+                    <option asp-for="Type" value="Social Insurance Authority">Social Insurance Authority</option>
+                    <option asp-for="Type" value="Nasser Social Bank (Alimony)">Nasser Social Bank (Alimony)</option>
+                    <option asp-for="Type" value="Alimony One Payment">Alimony One Payment</option>
+                    <option asp-for="Type" value="اشتراكات جمعية رعاية العاملين بميناء السخنة">اشتراكات جمعية رعاية العاملين بميناء السخنة</option>
+                    <option asp-for="Type" value="حـ/ وزارة المالية- الادارة المركزية للحسابات المركزية- صندوق تكريم شهداء وضحايا ومفقودي ومصابي العمليات الحربية والإرهابية والأمنية وأسرهم/ المشاركة المجتمعية ">حـ/ وزارة المالية- الادارة المركزية للحسابات المركزية- صندوق تكريم شهداء وضحايا ومفقودي ومصابي العمليات الحربية والإرهابية والأمنية وأسرهم/ المشاركة المجتمعية</option>
+                    <option asp-for="Type" value="Apprenticeship program">Apprenticeship program</option>
+                    <option asp-for="Type" value="Employees">Employees</option>
+                    <option asp-for="Type" value="other">Other</option>
+                </select>
+                <span asp-validation-for="Type" ></span>
+            </div>
+                <div class="form-group form-input">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" ></span>
+            </div>
+                <div class="form-group form-input">
+                <label asp-for="VoucherCurrency" class="control-label"></label>
+                <select asp-for="VoucherCurrency" class="form-select">
+                    <option asp-for="VoucherCurrency" value="EGP">EGP</option>
+                    <option asp-for="VoucherCurrency" value="USD">USD</option>
+                    
+                </select>
+                <span asp-validation-for="VoucherCurrency" ></span>
+            </div>
+
+                <div id="ifYes" style="display: none;" class="form-group form-input">
+                <label asp-for="OtherNotes" class="control-label">Other Notes</label>
+                <textarea asp-for="OtherNotes" class="form-control"></textarea>
+                <span asp-validation-for="Type" ></span>
+            </div>
+                    <div class="form-group1 form-input">
+                        <input type="submit" value="Submit" class="btn-gradient-submit" style="margin-left:90%" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function){
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            }
+                };
+    </script>
+    <script>
+        function yesnoCheck(that) {
+            if (that.value == "other") {
+
+                document.getElementById("ifYes").style.display = "block";
+            } else {
+                document.getElementById("ifYes").style.display = "none";
+            }
+        }
+
+    </script>
+    
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>SOK PORTAL</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    @*<!-- Favicons -->
+    <link href="images/favicon.ico" rel="icon">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="css/style.css" rel="stylesheet">*@
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: dpfontw;
+            color: #444444;
+            background-repeat: no-repeat;
+            /*background-position: 25% 75%;*/
+            background-position-x: 20rem;
+            background-position-y: 50%;
+            background-size: contain;
+            background-image:url(images/bg1.svg)
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #hero {
+    width: 100%;
+    height: 100vh;
+    background: url(images/cover.jpg) top center;
+    background-size: cover;
+    position: relative;
+}
+   #hero:before {
+        content: "";
+        background: rgba(30, 20, 80,0.6);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+
+
+    #hero .container {
+        position: relative;
+        padding-top: 74px;
+        text-align: center;
+    }
+
+
+
+    #hero h1 {
+        margin: 0;
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 64px;
+        color: #fff;
+        font-family: Pilat-Bold;
+    }
+
+
+
+        #hero h1 span {
+            color: #3230BE;
+        }
+
+
+
+    #hero h2 {
+        color: rgba(255, 255, 255, 0.9);
+        margin: 10px 0 0 0;
+        font-size: 24px;
+        letter-spacing: 3px;
+        font-family: Pilat-Regular !important;
+    }
+
+
+
+        @@media (min-width: 1024px) {
+    #hero {
+        background-attachment: fixed;
+    }
+}
+
+
+
+        @@media (max-width: 768px) {
+    #hero {
+        height: auto;
+    }
+
+
+
+        #hero h1 {
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+
+
+        #hero h2 {
+            font-size: 20px;
+            line-height: 24px;
+        }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-lg-between">
+
+            <!--<h1 class="logo me-auto me-lg-0"><a href="index.html">Gp<span>.</span></a></h1>-->
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="index.html" class="logo me-auto me-lg-0"><img src="images/logo_w.png" alt="" class="img-fluid"></a>
+
+            <nav id="navbar" class=" order-last order-lg-0">
+             
+
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container">
+
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-8">
+                    <h1>SOK PORTAL<span>.</span></h1>
+                    <h2 class="h2">All of our digital solutions in one place</h2>
+                </div>
+            </div>
+
+            <div class="d-flex gy-4 mt-5 justify-content-center">
+                <a href="#services" class="get-started-btn scrollto">Get Started</a>
+               @* <a asp-controller="Login" asp-action="Index" class="get-started-btn edocBtn">eDOCUMENT</a>*@
+            </div>
+
+
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+        <!-- End About Section -->
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container appbox">
+
+                <div class="section-title">
+                    <h2 class="h2 oa">Our Applications</h2>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="http://10.101.100.195:14010/zodiac/core/auth">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>ZODIAC</h4>
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="http://101.101.100.233:7778/forms/frmservlet?config=express">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>EXPRESS</h4>
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="https://vas.dpworldsokhna.com/vas">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>VAS</h4>
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="https://ctbpadev.dpworld.com/dpwbpa/">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>BERTH PLAN</h4>
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a asp-controller="Login" asp-action="Index" class="apps">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>eDOCUMENT</h4>
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="https://tosgc.dpwsapps.com">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>LOGSTAR</h4>
+
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="https://app.powerbi.com/home">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>Power BI</h4>
+
+                            </div>
+                        </a>
+                    </div>
+                     <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="http://101.101.100.147:9704/analytics/saw.dll?catalog">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>BI</h4>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="https://vm-hrsystem.spdc.com/MenaITech/application/hrms/menapay/">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>MenaITech</h4>
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="https://vm-hrsystem.spdc.com/MenaITech/application/hrms/mename/">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>MenaMe</h4>
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="https://ehpv.fa.em2.oraclecloud.com/">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>ORACLE</h4>
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 d-flex align-items-stretch mt-4">
+                        <a class="apps" href="https://appsportali.dpworldsokhna.com:500/fusion/login.aspx">
+                            <div class="icon-box">
+                                <div class="icon"><img src="images/zodiac.png" class="dpicon" alt=""></div>
+                                <h4>2Fusion</h4>
+
+                            </div>
+                        </a>
+                    </div>
+                   
+                </div>
+
+            </div>
+        </section><!-- End Services Section -->
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <img src="~/images/footer-2.svg" style="width: 100%;" />
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a  class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+   
+
+</body>
+
+</html>

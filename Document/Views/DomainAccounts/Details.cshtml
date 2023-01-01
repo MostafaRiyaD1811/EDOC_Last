@@ -1,0 +1,94 @@
+﻿@model Document.Models.DomainAccount
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<main class="col-md-9 col-lg-10  px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Request Details</h1>
+        @*<div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+        <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+        </div>
+        </div>*@
+    </div>
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100 del-details continer">
+            <dl class="row details-box">
+
+                <div class="col-6">
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.RequesterName)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.RequesterName)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.RequesterPhone)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.RequesterPhone)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.RequesterCode)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.RequesterCode)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.RequesterExtension)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.RequesterExtension)
+                    </dd>
+                </div>
+                <div class="col-6">
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.RequesterDept)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.RequesterDept)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.RequesterJobTitle)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.RequesterJobTitle)
+                    </dd>
+                     <dt class="">
+                        @Html.DisplayNameFor(model => model.ReqNumber)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.ReqNumber)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.RequesterCompany)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.RequesterCompany)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.OU)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.OU)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.LoginName)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.LoginName)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.DisplayName)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.DisplayName)
+                    </dd>
+                </div>
+            </dl>
+        </div>
+       

@@ -1,0 +1,116 @@
+﻿@model Document.Models.Voucher
+
+@{
+    ViewData["Title"] = "Details";
+}
+<main class="col-md-9 col-lg-10  px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Request Details</h1>
+        @*<div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+        <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+        </div>
+        </div>*@
+    </div>
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100 del-details">
+            <dl class="row">
+                <div class="col-6">
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.VendorName)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.VendorName)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.VendorNum)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.VendorNum)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.Amount)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.Amount)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.InvoiceDate)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.InvoiceDate)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.Details)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.Details)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.BeneficiaryName)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.BeneficiaryName)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.ReqNumber)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.ReqNumber)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.CreatedAt)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.CreatedAt)
+                    </dd>
+                </div>
+                <div class="col-6">
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.OtherNotes)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.OtherNotes)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.Type)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.Type)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.VoucherCurrency)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.VoucherCurrency)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.OtherNotes)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.OtherNotes)
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</main>
+@*<div>
+    <a asp-action="Index" id="edit" class="btn btn-info">Back to List</a>
+</div>*@
+

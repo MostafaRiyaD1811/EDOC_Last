@@ -1,0 +1,183 @@
+﻿@model Document.Models.Requester
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Requester</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" ></div>
+            <input type="hidden" asp-for="EmployeeCode" />
+            <div class="form-group">
+                <label asp-for="EmployeeCode" class="control-label"></label>
+                <input asp-for="EmployeeCode" class="form-control" />
+                <span asp-validation-for="EmployeeCode" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dept" class="control-label"></label>
+                <select asp-for="Dept" class="form-select">
+                    <option selected value="@null">Choose your Department</option>
+                    <option asp-for="Dept" value="Adminstration">Adminstration</option>
+                    <option asp-for="Dept" value="People Department">People Department</option>
+                    <option asp-for="Dept" value="IT">IT</option>
+                    <option asp-for="Dept" value="Finance">Finance</option>
+                    <option asp-for="Dept" value="Procurement">Procurement</option>
+                    <option asp-for="Dept" value="Security">Security</option>
+                    <option asp-for="Dept" value="QHSE">QHSE</option>
+                    <option asp-for="Dept" value="Customer Service">Customer Service</option>
+                    <option asp-for="Dept" value="Commercial">Commercial</option>
+                    <option asp-for="Dept" value="Operations">Operations</option>
+                    <option asp-for="Dept" value="Technical">Technical</option>
+                </select>
+                <span asp-validation-for="Dept" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" ></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MgrName" class="control-label"></label>
+                <input asp-for="MgrName" class="form-control" />
+                <span asp-validation-for="MgrName" ></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Company" class="control-label"></label>
+                <select asp-for="Company" class="form-select">
+                    <option selected value="@null">Choose Company</option>
+                    <option asp-for="Company" value="DPWorld">DPWorld</option>
+                    <option asp-for="Company" value="Global Solution Co.">Global Solution Co.</option>
+                    <option asp-for="Company" value="Golden Guard Co.">Golden Guard Co.</option>
+                    <option asp-for="Company" value="Trademar Co.">Trademar Co.</option>
+                    <option asp-for="Company" value="Queen Service Co.">Queen Service Co.</option>
+                    <option asp-for="Company" value="Mohd Khalil Co.">Mohd Khalil Co.</option>
+                    <option asp-for="Company" value="ADDDED Co.">ADDDED Co.</option>
+                    <option asp-for="Company" value="Basmala">Basmala</option>
+                 
+                </select>
+                <span asp-validation-for="Dept" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position" class="control-label"></label>
+                <input asp-for="Position" class="form-control" />
+                <span asp-validation-for="Position" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MgrCode" class="control-label"></label>
+                <input type="number" asp-for="MgrCode" class="form-control" />
+                <span asp-validation-for="MgrCode" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LDap" class="control-label"></label>
+                <input asp-for="LDap" class="form-control" />
+                <span asp-validation-for="LDap" ></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="HRUser" class="control-label"></label>
+                <select asp-for="HRUser" class="form-select">
+
+                    <option selected asp-for="HRUser" value="0">No</option>
+                    <option asp-for="HRUser" value="1">Yes</option>
+
+                </select>
+                <span asp-validation-for="HRUser" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HRReviewer" class="control-label"></label>
+                <select asp-for="HRReviewer" class="form-select">
+
+                    <option selected asp-for="HRReviewer" value="0">No</option>
+                    <option asp-for="HRReviewer" value="1">Yes</option>
+
+                </select>
+                <span asp-validation-for="HRReviewer" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HRMgr" class="control-label"></label>
+                <select asp-for="HRMgr" class="form-select">
+
+                    <option selected asp-for="HRMgr" value="0">No</option>
+                    <option asp-for="HRMgr" value="1">Yes</option>
+
+                </select>
+                <span asp-validation-for="HRMgr" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinanceInitiator" class="control-label"></label>
+                <select asp-for="FinanceInitiator" class="form-select">
+
+                    <option selected asp-for="FinanceInitiator" value="0">No</option>
+                    <option asp-for="FinanceInitiator" value="1">Yes</option>
+
+                </select>
+                <span asp-validation-for="FinanceInitiator" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinanceReviewr" class="control-label"></label>
+                <select asp-for="FinanceReviewr" class="form-select">
+
+                    <option selected asp-for="FinanceReviewr" value="0">No</option>
+                    <option asp-for="FinanceReviewr" value="1">Yes</option>
+
+                </select>
+                <span asp-validation-for="FinanceReviewr" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinanceMgr" class="control-label"></label>
+                <select asp-for="FinanceMgr" class="form-select">
+
+                    <option selected asp-for="FinanceMgr" value="0">No</option>
+                    <option asp-for="FinanceMgr" value="1">Yes</option>
+
+                </select>
+                <span asp-validation-for="FinanceMgr" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TechnicalPlanning" class="control-label"></label>
+                <select asp-for="TechnicalPlanning" class="form-select">
+
+                    <option selected asp-for="TechnicalPlanning" value="0">No</option>
+                    <option asp-for="TechnicalPlanning" value="1">Yes</option>
+
+                </select>
+                <span asp-validation-for="TechnicalPlanning" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ITAdmin" class="control-label"></label>
+                <select asp-for="ITAdmin" class="form-select">
+                    <option selected asp-for="ITAdmin" value="0">No</option>
+                    <option asp-for="ITAdmin" value="1">Yes</option>
+                </select>
+                <span asp-validation-for="ITAdmin" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transportation" class="control-label"></label>
+                <select asp-for="Transportation" class="form-select">
+                    <option selected asp-for="Transportation" value="0">No</option>
+                    <option asp-for="Transportation" value="1">Yes</option>
+                </select>
+                <span asp-validation-for="Transportation" ></span>
+            </div>
+
+            <div style="margin-left:90% ; padding-top:20px;">
+                <input type="submit" value="Submit" class="btn-gradient-submit" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

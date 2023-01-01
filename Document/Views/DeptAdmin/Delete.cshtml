@@ -1,0 +1,67 @@
+﻿@model Document.Models.Requester
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<style>
+    body {
+        font-family: 'pilat light';
+        src: url('pilat light.otf') format('opentype');
+        font-palette: dark;
+    }
+     #edit {
+        color: white;
+        width: 80px;
+        font-size: 14px;
+        background: linear-gradient(90deg, #4B50DA 0%, #3E3C90 59.9%, #1E1450 100%);
+        border-radius: 127px;
+        letter-spacing: 0.5px;
+    }
+
+    @@font-face {
+        font-family: 'pilat light';
+        src: url('pilat light.otf') format('opentype');
+    }
+
+</style>
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Requester</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MgrName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MgrName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LDap)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LDap)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Manager)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Manager.EmployeeCode)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EmployeeCode" />
+        <input type="submit" id="edit" value="Delete" class="btn btn-danger" /> |
+       
+    </form>
+</div>

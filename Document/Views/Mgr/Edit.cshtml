@@ -1,0 +1,88 @@
+﻿@model Document.Models.CarRequest
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100">
+            <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-5 ">
+                <h5 class="approval-title">You have been asked to approve this request</h5>
+            </div>
+
+            <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+                <div class="col-md-4">
+        <form  asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" ></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="Name" class="form-control" />
+                <input type="hidden" asp-for="ReqNumber" />
+                <input type="hidden" asp-for="RequesterName" />
+                <input type="hidden" asp-for="AttachmentPath" />
+                <input type="hidden" asp-for="MobileNo" class="form-control" />
+
+
+                <input type="hidden" asp-for="DepartureAddress" class="form-control" />
+
+                <input type="hidden" asp-for="DestinationAddress" class="form-control" />
+
+                <input type="hidden" asp-for="Departure" class="form-control" />
+
+
+                <input type="hidden" asp-for="ReturnBack" class="form-control" />
+
+
+                <input type="hidden" asp-for="LuggageDescription" class="form-control" />
+
+
+                <input type="hidden" asp-for="CreatorId" class="form-control" />
+
+
+                <input type="hidden" asp-for="RequesterId" class="form-control" />
+
+
+
+             <input type="hidden"  class="form-check-input" name="CarType"  asp-for="CarType" class="form-control">
+
+
+
+                <textarea hidden asp-for="Justification" class="form-control"></textarea>
+
+
+          
+                        <div class="form-group">
+                            <label asp-for="Notes" class="control-lab">Add comment <span class="side-note">(Must leave your notes if the request to be declined)</span></label>
+                            <textarea asp-for="Notes" class="form-control"></textarea>
+                            <span asp-validation-for="Notes"></span>
+                        </div>
+            <div class="d-flex justify-content-center m-4">
+
+                <div>
+                 <input class="btn-gradient-approve" id="edit" type="submit" name="MgrStatuts" asp-for="MgrStatuts" value="@MgrStatutses.Approve">
+                </div>
+
+
+                <div>
+                 <input class="btn-gradient-submit" id="delete" type="submit" name="MgrStatuts" asp-for="MgrStatuts" value="@MgrStatutses.Decline">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</main>
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

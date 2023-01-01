@@ -1,0 +1,502 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Inbox";
+}
+
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    @@media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+
+</style>
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+
+    <h1 class="Req-title pb-5">INBOX</h1>
+    @*<div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+    <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+    </div>
+    </div>*@
+    @*---------------------------------------car req---------------------------------------------------------*@
+    <div class="row align-items-stretch no-gutters contact-wrap pb-5">
+        <div class="form h-100">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 ">
+                <h3 class="Req-title-mgr">CAR REQUESTS</h3>
+                <a asp-controller="CarRequests" asp-action="Redirectto" class="btn-gradient-submit mb-2">Take Actions</a>
+            </div>
+
+            @*<h2 class="subreq-title">Requests Table</h2>*@
+
+            <div class="table-responsive">
+                <table class="table text-center my-2">
+                    <thead>
+                        <tr class="th">
+
+                            <th>
+                                Requester
+                            </th>
+
+                            <th>
+                                Departure
+                            </th>
+                            <th>
+                                Destination
+                            </th>
+                            <th>
+                                Departure Date
+                            </th>
+
+                            <th>
+                                Car Type
+                            </th>
+                            <th>
+                                Mission Type
+                            </th>
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Attachment
+                            </th>
+@*                            <th>Actions</th>
+*@                        </tr>
+                    </thead>
+                    <tbody>
+                       @* @if (false)
+                        {
+                            <tr>
+                                <td colspan="15" class="nodatayet">
+
+                                    There's no requests yet
+
+                                </td>
+
+                            </tr>
+                        }
+                        else
+                        {*@
+                            @foreach (CarRequest item in Model.CarRequests)
+                            {
+
+                                <tr class="even">
+
+                                    @*  <td>
+                            @Html.DisplayFor(modelItem => item.RequesterName)
+                            </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DepartureAddress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DestinationAddress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ReturnBack)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CarType)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Justification)
+                                    </td>
+                                    <td>
+                                        @if (item.Status == "Approved")
+                                        {
+                                            <div class="approved">
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </div>
+                                        }
+                                        else if (item.Status == "Declined")
+                                        {
+                                            <div class="declined">
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </div>
+                                        }
+                                        else if (item.Status == "Pending")
+                                        {
+                                            <div class="pending">
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </div>
+                                        }
+
+                                    <td>
+                                        <a asp-action="Download" id="details" class="btn-download btn-sm btn-outline-secondary" asp-route-fileName="@item.AttachmentPath" asp-route-id="@item.ReqNumber">Download</a>
+
+                                    </td>
+
+
+                                        @if ((item.MgrStatuts == MgrStatutses.Approve) && (item.DeptAdminStatuts == DeptAdminStatutses.Approve))
+                                        {
+                                        <td>
+                                            <div class="btn-group me-2">
+                                                <a asp-action="Details" class="btn btn-sm btn-outline-secondary details" asp-route-id="@item.Id">Details</a>
+                                            </div>
+                                        </td>
+
+                                        }
+@*                                        else
+                                        {
+                                        <td>
+                                            <div class="btn-group me-2">
+                                                <a asp-action="Details" class="btn btn-sm btn-outline-secondary details" asp-route-id="@item.Id">Details</a>
+
+                                            </div>
+                                        </td>
+                                        }*@
+                                </tr>
+                            }
+
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    @*---------------------------------------------------------------------------------------------------------------*@
+    @*---------------------------------------domain account req---------------------------------------------------------*@
+
+    <div class="row align-items-stretch no-gutters contact-wrap pb-5">
+        <div class="form h-100 ">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 ">
+                <h3 class="Req-title-mgr">DOMAIN ACCOUNT REQUESTS</h3>
+                <a asp-controller="DomainAccounts" asp-action="Redirectto" class="btn-gradient-submit mb-2">Take Actions</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table my-2">
+                    <thead>
+                        <tr>
+                            <th>
+                                Requester
+                            </th>
+
+                            <th>
+                                Department
+                            </th>
+                            <th>
+                                Job Title
+                            </th>
+                            <th>
+                                Company
+                            </th>
+                            
+                            <th>
+                            Created At
+                            </th>
+                            
+                            <th>
+                                Status
+                            </th>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (DomainAccount item in Model.DomainAccounts)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterName)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterDept)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterJobTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterCompany)
+                                </td>
+                                <td>
+                            @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+
+                                
+                                <td>
+                                    @if (item.Status == "Approved")
+                                    {
+                                        <div class="approved">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Declined")
+                                    {
+                                        <div class="declined">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Pending")
+                                    {
+                                        <div class="pending">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                </td>
+                                
+                                <td>
+
+
+                                    
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @*---------------------------------------------------------------------------------------------------------------*@
+    @*---------------------------------------Traveldesk req---------------------------------------------------------*@
+    <div class="row align-items-stretch no-gutters contact-wrap pb-5">
+        <div class="form h-100 ">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 ">
+                <h3 class="Req-title-mgr">TRAVEL DESK REQUISTION</h3>
+                <a asp-controller="TravelDesks" asp-action="Redirectto" class="btn-gradient-submit mb-2">Take Actions</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table my-2">
+                    <thead>
+                        <tr>
+                            <th>
+                                Requester
+                            </th>
+                            @*  <th>
+                            Request
+                            </th>*@
+
+                            <th>
+                                Department
+                            </th>
+                            <th>
+                                Jop Title
+                            </th>
+                            <th>
+                                Nationality
+                            </th>
+                             <th>
+                                Request Purpose
+                            </th>
+
+                            <th>
+                                Destination Country
+                            </th>
+                            <th>
+                                Expected Travel Time
+                            </th>
+
+
+                            <th>
+                                ReturnBack
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+
+                            <th>
+                                Attachment
+                            </th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (TravelDesk item in Model.TravelDesks)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterName)
+                                </td>
+                                @* <td>
+                            @Html.DisplayFor(modelItem => item.Request)
+                            </td>*@
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequesterDept)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nationality)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestPurpose)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DestinationCountry)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ExpectedTravelTime)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ReturnBack)
+                                </td>
+
+                                <td>
+                                    @if (item.Status == "Approved")
+                                    {
+                                        <div class="approved">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Declined")
+                                    {
+                                        <div class="declined">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Pending")
+                                    {
+                                        <div class="pending">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                </td>
+
+                                <td>
+                                    <a asp-action="Download" id="details" class="btn-download btn-success btn-sm " asp-route-fileName="@item.Attach" asp-route-id="@item.ReqNumber">Download</a>
+
+                                </td>
+                                </tr>
+                        }
+                    </tbody>
+                </table>               
+            </div>
+        </div>
+    </div>
+    @*---------------------------------------------------------------------------------------------------------------*@
+    @*---------------------------------------JobPlan req---------------------------------------------------------*@
+    <div class="row align-items-stretch no-gutters contact-wrap pb-5">
+        <div class="form h-100 ">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 ">
+                <h3 class="Req-title-mgr">Job Plan REQUESTS</h3>
+                <a asp-controller="JobPlanUpdates" asp-action="Redirectto" class="btn-gradient-submit mb-2">Take Actions</a>
+            </div>
+
+             <div class="table-responsive">
+                <table class="table my-2">
+                <thead>
+                    <tr class="th">
+
+                        <th>
+                            Code
+                        </th>
+                        <th>
+                            Old Interval
+                        </th>
+                        <th>
+                            New Interval
+                        </th>
+                        <th>
+                            Material to be removed
+                        </th>
+                        <th>
+                            Material to be added
+                        </th>
+
+
+                        <th>
+                           Created
+                        </th>
+                        <th>
+                          Assignee
+                        </th>
+
+                        <th>
+                         Asset Type
+                        </th>
+                        <th>Actions</th>
+                        <th>
+                            Status
+                        </th>
+
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach (JobPlanUpdate item in Model.JobPlans)
+                    {
+                        <tr class="even">
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.JobPlanCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OldJobInterval)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NewJobInterval)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaterialsRemoved)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaterialsAdded)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CurrentReviewer)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AssetType)
+                            </td>
+                            <td>
+                                @if (item.Status == "Approved")
+                                {
+                                    <div class="approved">
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </div>
+                                }
+                                else if (item.Status == "Declined")
+                                {
+                                    <div class="declined">
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </div>
+                                }
+                                else if (item.Status == "Pending")
+                                {
+                                    <div class="pending">
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </div>
+                                }
+
+                            </td>
+                            <td>
+                                <a asp-action="Files" class="btn-download btn-sm btn-outline-secondary" asp-route-id="@item.ReqNumber">Download</a>
+                            </td>
+
+
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</main>

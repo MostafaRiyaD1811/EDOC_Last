@@ -1,0 +1,90 @@
+﻿@model Document.ViewModels.PRViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .input-validation-error {
+        border-bottom: 2px solid #FF5F5F !important;
+        color: #FF5F5F;
+        font-family: Pilat-demi;
+    }
+
+</style>
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">PO</h1>
+
+    </div>
+    <h2 class="subreq-title">Create New Request</h2>
+
+    <div class="container-fluid">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+
+            <!--<div class="row">
+                <div class="col-md-4">-->
+
+            <div class="form h-100">
+
+
+                <form enctype="multipart/form-data" asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" ></div>
+
+                    <div class="form-group form-input">
+                <label asp-for="PONo" class="control-label"></label>
+                <input asp-for="PONo" class="form-control" />
+                <span asp-validation-for="PONo" ></span>
+            </div>
+                <div class="form-group form-input">
+                <label asp-for="VendorName" class="control-label"></label>
+                <input asp-for="VendorName" class="form-control" />
+                <span asp-validation-for="VendorName" ></span>
+            </div>
+            
+                <div class="form-group form-input">
+                  <label asp-for="VendorNum" class="control-label"></label>
+                  <input asp-for="VendorNum" class="form-control" />
+                  <span asp-validation-for="VendorNum" ></span>
+                </div>
+                <div class="form-group form-input">
+                <label asp-for="InvoiceNo" class="control-label"></label>
+                <input asp-for="InvoiceNo" class="form-control" />
+                <span asp-validation-for="InvoiceNo" ></span>
+            </div>
+                <div class="form-group form-input">
+                <label asp-for="CreationNotes" class="control-label"></label>
+                    <textarea asp-for="CreationNotes" class="form-control"></textarea>
+                <span asp-validation-for="CreationNotes" ></span>
+            </div>
+                <div class="form-group form-input">
+                <label asp-for="POAttach" class="custom-file-label control-label"></label>
+                <input asp-for="POAttach" type="file" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="form-control custom-file-input" />
+                <span asp-validation-for="POAttach" ></span>
+            </div>
+                <div class="form-group form-input">
+                        <label asp-for="InvoiceAttach" class="custom-file-label control-label"></label>
+                <input asp-for="InvoiceAttach" type="file" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="form-control custom-file-input" />
+                <span asp-validation-for="InvoiceAttach" ></span>
+            </div>
+                <div class="form-group1 form-input">
+                <label asp-for="OtherAttach" class="custom-file-label"></label>
+                <input asp-for="OtherAttach" type="file" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="form-control custom-file-input" />
+                <span asp-validation-for="OtherAttach" ></span>
+            </div>
+                    <div class="form-group1 form-input ">
+                        <input type="submit" value="Submit" class="btn-gradient-submit" style="margin-left:90%" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

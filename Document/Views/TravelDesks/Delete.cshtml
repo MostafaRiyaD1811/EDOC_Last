@@ -1,0 +1,176 @@
+﻿@model Document.Models.TravelDesk
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<main class="col-md-9 col-lg-10  px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Delete Request</h1>
+    </div>
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100 del-details container">
+            <div class="row">
+                <h5 style="color:#FF5F5F;" class="col-10">Are you sure you want to delete this request?</h5>
+                <form asp-action="Delete" class="col">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Delete" class="del btn btn-sm btn-outline-secondary" />
+
+                </form>
+            </div>
+            <div>
+                <br />
+                <div class="fade_rule"></div>
+                <br />
+
+                <dl class="row details-box">
+                    <div class="col-6">
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.ReqNumber)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.ReqNumber)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.Request)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.Request)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequesterName)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequesterName)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequesterDept)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequesterDept)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.Title)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.Nationality)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.Nationality)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.RequestPurpose)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.RequestPurpose)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.CheckIn)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.CheckIn)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.CheckOut)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.CheckOut)
+                        </dd>
+
+                    </div>
+                    <div class="col-6">
+
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.MissionAddress)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.MissionAddress)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.MethodOfPayment)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.MethodOfPayment)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.TripDirection)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.TripDirection)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.DestinationCountry)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.DestinationCountry)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.ExpectedTravelTime)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.ExpectedTravelTime)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.CostAllocation)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.CostAllocation)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.Remarks)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.Remarks)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.Departure)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.Departure)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.ReturnBack)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.ReturnBack)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.CreatedAt)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.CurrentReviewer)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.CurrentReviewer)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.Status)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.Status)
+                        </dd>
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.ApprovalNotes)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.ApprovalNotes)
+                        </dd>
+                    </div>
+                </dl>
+
+                @*<form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                <a asp-action="Index">Back to List</a>
+                </form>*@
+            </div>
+        </div><
+    </div>
+</main>

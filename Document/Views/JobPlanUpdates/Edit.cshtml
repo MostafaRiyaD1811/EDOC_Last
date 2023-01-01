@@ -1,0 +1,128 @@
+﻿@model Document.ViewModels.JobPlanUpdateViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<style>
+
+    .input-validation-error {
+        border-bottom: 2px solid #FF5F5F !important;
+        color: #FF5F5F;
+        font-family: Pilat-demi;
+    }
+
+</style>
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Request Edit</h1>
+
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+
+            <!--<div class="row">
+                <div class="col-md-4">-->
+
+            <div class="form h-100">
+
+                <form enctype="multipart/form-data" asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class=""></div>
+                    <input type="hidden" asp-for="Id" />
+
+                    <input type="hidden" asp-for="ReqNumber" class="form-control" />
+
+                    <input type="hidden" asp-for="RequesterName" class="form-control" />
+                    <input type="hidden" asp-for="RequesterId" class="form-control" />
+
+                    <input type="hidden" asp-for="RequesterMgrName" class="form-control" />
+
+                    <input type="hidden" asp-for="CreatedAt" class="form-control" />
+
+                    <input type="hidden" asp-for="CurrentReviewer" class="form-control" />
+
+                    <input type="hidden" asp-for="Status" class="form-control" />
+
+                    <input type="hidden" asp-for="ApprovalNotes" class="form-control" />
+                    <input type="hidden" asp-for="CurrentReviewerId" class="form-control" />
+
+                    <input type="hidden" asp-for="MgrStatuts" class="form-control" />
+
+                    <input type="hidden" asp-for="TechnicalPlanningSatus" class="form-control" />
+
+
+
+                    <select hidden asp-for="CurrentReviewer" class="form-control" asp-items="ViewBag.CurrentReviewerId"></select>
+                    <input type="hidden" asp-for="ReqNumber" />
+
+                    <div class="form-group form-input">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <span asp-validation-for="Description" class=""></span>
+                    </div>
+
+                    <div class="form-group form-input">
+                        <label asp-for="RequiredAction" class="control-label"></label>
+                        <select asp-for="RequiredAction" class="form-select">
+                            <option asp-for="RequiredAction" value="Update">Update</option>
+                            <option asp-for="RequiredAction" value="Deactivate">Deactivate</option>
+                            <option asp-for="RequiredAction" value="New">New</option>
+                        </select>
+                        <span asp-validation-for="RequiredAction" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="JobPlanCode" class="control-label"></label>
+                        <textarea asp-for="JobPlanCode" class="form-control"></textarea>
+                        <span asp-validation-for="JobPlanCode" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="OldJobInterval" class="control-label"></label>
+                        <textarea asp-for="OldJobInterval" class="form-control"></textarea>
+                        <span asp-validation-for="OldJobInterval" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="NewJobInterval" class="control-label"></label>
+                        <textarea asp-for="NewJobInterval" class="form-control"></textarea>
+                        <span asp-validation-for="NewJobInterval" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="MaterialsRemoved" class="control-label"></label>
+                        <textarea asp-for="MaterialsRemoved" class="form-control"></textarea>
+                        <span asp-validation-for="MaterialsRemoved" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="MaterialsAdded" class="control-label"></label>
+                        <textarea asp-for="MaterialsAdded" class="form-control"></textarea>
+                        <span asp-validation-for="MaterialsAdded" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="Attachments" class="custom-file-label"></label>
+                        <input asp-for="Attachments" multiple class="form-control custom-file-input" />
+                        <span asp-validation-for="Attachments" class=""></span>
+                        <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+                    </div>
+
+
+
+
+
+                    <div style="margin-left:90%">
+                        <input type="submit" value="Edit" class="btn-gradient-submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  
+</main>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

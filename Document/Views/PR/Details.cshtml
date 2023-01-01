@@ -1,0 +1,88 @@
+﻿@model Document.Models.PR
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<main class="col-md-9 col-lg-10  px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Request Details</h1>
+        @*<div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+        <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+        </div>
+        </div>*@
+    </div>
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100 del-details container">
+            <dl class="row details-box">
+                <div class="col-6">
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.PONo)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.PONo)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.InvoiceNo)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.InvoiceNo)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.VendorName)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.VendorName)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.CreationNotes)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.CreationNotes)
+                    </dd>
+                </div>
+                <div class="col-6">
+                    @if (Model.FinanceReviewerStatus == FinanceReviewerStatuses.Approve)
+                    {
+                        <dt class="">
+                            @Html.DisplayNameFor(model => model.ApprovedAt)
+                        </dt>
+                        <dd class="">
+                            @Html.DisplayFor(model => model.ApprovedAt)
+                        </dd>
+                    }
+
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.ReqNumber)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.ReqNumber)
+                    </dd>
+
+                    <dt class="">
+                        @Html.DisplayNameFor(model => model.CreatedAt)
+                    </dt>
+                    <dd class="">
+                        @Html.DisplayFor(model => model.CreatedAt)
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        @*<div>
+        <a asp-action="Index" class="btn btn-dark btn-sm">Back to List</a>
+        </div>
+        <br />
+        <div>
+        <a asp-action="DemoViewAsPDF" class="btn btn-primary btn-sm" asp-route-id="@Model.Id">Report PDF</a>
+        </div>*@
+    </div>
+</main>

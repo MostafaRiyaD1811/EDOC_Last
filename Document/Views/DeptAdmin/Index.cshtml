@@ -1,0 +1,157 @@
+﻿@model IEnumerable<Document.Models.CarRequest>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    @@media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+
+</style>
+
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="Req-title">CAR REQUESTS</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+            </div>
+        </div>
+    </div>
+    <h2 class="subreq-title">Inbox</h2>
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100">
+            <div class="table-responsive">
+                <span class="d-flex justify-content-end pb-3">
+                    <form method="get" asp-action="Index">
+                        <div class="input-group">
+                            <button type="submit" class="btn-search btn-outline-primary btn-sm"> <img src="~/Images/image.png" style="width: 2rem;" class="m-2" /> </button>
+                            <input type="number" class="Search-box" placeholder="Request Number" name="searching" />
+                        </div>
+                    </form>
+                </span>
+
+                <table class="table my-2">
+                    <thead>
+        <tr class="th">
+
+            <th>
+                @Html.DisplayNameFor(model => model.RequesterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DestinationAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnBack)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.CarType)
+            </th>
+            
+           
+            <th>
+                @Html.DisplayNameFor(model => model.ReqNumber)
+            </th>
+           <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+                        @if (Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="15" class="nodatayet">
+
+                                    There's no requests yet
+
+                                </td>
+
+                            </tr>
+                        }
+        else
+        {
+        @foreach (var item in Model)
+        {
+            if (item.DeptAdminStatuts == DeptAdminStatutses.Pending)
+            {
+                <tr class="even">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequesterName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MobileNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DestinationAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departure)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReturnBack)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarType)
+                    </td>                   
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReqNumber)
+                        </td>
+                    <td>
+                         <div class="btn-group me-2">
+                                                <a asp-controller="CarRequests" asp-action="Details" class="btn btn-sm btn-outline-secondary details" asp-route-id="@item.Id">Details</a>
+                                                <a asp-action="Edit" class="btn btn-sm btn-outline-secondary approve" asp-route-id="@item.Id">Action</a>
+                                            </div>
+                    </td>
+                       
+
+                </tr>
+            }
+        }
+      }
+
+
+
+
+
+    </tbody>
+</table>
+            </div>
+        </div>
+
+    </div>
+</main>

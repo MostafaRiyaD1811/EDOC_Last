@@ -1,0 +1,68 @@
+﻿@model Document.Models.DomainAccount
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    .input-validation-error {
+        border-bottom: 2px solid #FF5F5F !important;
+        color: #FF5F5F;
+        font-family: Pilat-demi;
+    }
+</style>
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">DOMAIN ACCOUNT</h1>
+
+    </div>
+    <h2 class="subreq-title">Create New Request</h2>
+
+    <div class="container-fluid">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+
+
+            <div class="form h-100">
+
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class=""></div>
+
+                    <div class="form-group form-input ">
+                        <label asp-for="RequesterPhone" class="control-label"></label>
+                        <input asp-for="RequesterPhone" class="form-control" />
+                        <span asp-validation-for="RequesterPhone"></span>
+                    </div>
+
+                    <div class="form-group form-input ">
+                        <label asp-for="RequesterCode" class="control-label"></label>
+                        <input asp-for="RequesterCode" class="form-control" />
+                        <span asp-validation-for="RequesterCode"></span>
+                    </div>
+                    <div class="form-group1 form-input ">
+                        <label asp-for="RequesterExtension" ></label>
+                        <input asp-for="RequesterExtension" class="form-control" />
+                        <span asp-validation-for="RequesterExtension"></span>
+                    </div>
+
+
+                    <div class="form-group1 form-input ">
+                        <input type="submit" value="Submit" class="btn-gradient-submit" style="margin-left:90%" />
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+</main>
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,146 @@
+﻿@model List<FileModel>
+<style>
+    body {
+        font-family: 'pilat light';
+        src: url('pilat light.otf') format('opentype');
+        font-palette: dark;
+    }
+
+
+    @@font-face {
+        font-family: 'pilat light';
+        src: url('pilat light.otf') format('opentype');
+    }
+
+
+</style>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style media="screen">
+    body {
+        font-family: pilat light;
+    }
+
+    /*.container {
+                padding: 1rem 0rem;
+            }*/
+
+    h4 {
+        margin: 2rem 0rem 1rem;
+    }
+
+    }
+
+    td, th {
+        width: 6rem;
+    }
+
+
+    tr {
+        border-top: 2px solid #EBEBF0;
+        border-bottom: 2px solid #EBEBF0;
+    }
+
+    /*.container {
+                margin: 0.5rem;
+            }*/
+
+    #download {
+        margin: 5px;
+        padding: 5px;
+        border: 0px;
+        background-color: inherit;
+    }
+
+    #edit {
+        color: white;
+        width: 80px;
+        font-size: 14px;
+        background: linear-gradient(90deg, #4B50DA 0%, #3E3C90 59.9%, #1E1450 100%);
+        border-radius: 127px;
+        letter-spacing: 0.5px;
+    }
+
+    .edit:hover {
+        color: black;
+        background: white;
+        border: 1px solid black;
+    }
+
+
+
+    span {
+        padding: 5px;
+    }
+
+    /* .btn {
+                margin: 3px;
+                padding: 0px !important
+            }*/
+
+    .action {
+        text-align: center;
+    }
+
+    #details {
+        width: 80px;
+        border: 1px solid #3E3C90;
+        border-radius: 127px;
+        color: #3E3C90;
+        background-color: #ECECFF;
+    }
+
+    #delete {
+        width: 80px;
+        border: 1px solid #3A3A42;
+        border-radius: 127px;
+        color: #3A3A42;
+        background-color: #D5D5DD;
+    }
+</style>
+<br />
+<br>
+    <h1>Attached Files </h1>
+    <hr />
+    <br />
+<table class="table table-striped text-center">
+    <thead>
+        <tr class="th">
+            <th>
+                File Name
+            </th>
+           <th>Download Link</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (FileModel file in Model)
+        {
+           
+                <tr class="even">
+                    <td>
+                        @file.FileName
+                    </td>
+                    <td>
+                    <a asp-action="DownloadFile" style="width:9rem;" class="btn-download btn-sm btn-outline-secondary" asp-route-fileName="@file.FileName" asp-route-id="@file.Id">Download</a>
+
+                    </td>
+                </tr>
+            
+        }
+
+
+
+
+
+
+    </tbody>
+</table>

@@ -1,0 +1,137 @@
+﻿@using Document.ViewModels;
+@model IEnumerable<Document.Models.JobPlanUpdate>
+
+@{
+    ViewData["Title"] = "MgrIndex";
+}
+
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">JOP PLAN</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+            </div>
+        </div>
+    </div>
+     <h2 class="subreq-title">Requests Table</h2>
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100">
+            <div class="table-responsive">
+                <table class="table text-center my-2">
+                    <thead>
+                        <tr class="th">
+
+                            <th>
+                                Code
+                            </th>
+                            <th>
+                                Old Interval
+                            </th>
+                            <th>
+                                New Interval
+                            </th>
+                            <th>
+                                Material to be removed
+                            </th>
+                            <th>
+                                Material to be added
+                            </th>
+
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedAt)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CurrentReviewer)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.AssetType)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>Attachment</th>
+                            
+
+
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="even">
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.JobPlanCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OldJobInterval)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NewJobInterval)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MaterialsRemoved)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MaterialsAdded)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CurrentReviewer)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AssetType)
+                                </td>
+                                <td>
+                                    @if (item.Status == "Approved")
+                                    {
+                                        <div class="approved">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Declined")
+                                    {
+                                        <div class="declined">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Pending")
+                                    {
+                                        <div class="pending">
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </div>
+                                    }
+
+                                </td>
+                                <td>
+                                    <a asp-action="Files" class="btn-download btn-sm btn-outline-secondary" asp-route-id="@item.ReqNumber">Download</a>
+                                </td>
+
+
+
+                                <td>
+                                    <div class="btn-group me-2">
+                                        <a asp-controller="JobPlanUpdates" id="details" asp-action="Details" class="btn btn-sm btn-outline-secondary details" asp-route-id="@item.Id">Details</a>
+                                        <a asp-action="MgrEdit" id="edit" class="btn btn-sm btn-outline-secondary approve" asp-route-id="@item.Id">Approve</a>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            </div>
+</main>

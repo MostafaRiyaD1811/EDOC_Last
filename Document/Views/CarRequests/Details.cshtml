@@ -1,0 +1,126 @@
+﻿@model Document.Models.CarRequest
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<main class="col-md-9 col-lg-10  px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Request Details</h1>
+        @*<div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+            </div>
+        </div>*@
+    </div>
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100 del-details continer">
+    <dl class="row details-box">
+        <div class="col-6">
+        <dt >
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+       
+        <dt >
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.MobileNo)
+        </dd>
+        <dt >
+            @Html.DisplayNameFor(model => model.DepartureAddress)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.DepartureAddress)
+        </dd>
+        <dt >
+            @Html.DisplayNameFor(model => model.DestinationAddress)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.DestinationAddress)
+        </dd>
+        <dt >
+            @Html.DisplayNameFor(model => model.Departure)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Departure)
+        </dd>
+        <dt >
+            @Html.DisplayNameFor(model => model.ReturnBack)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.ReturnBack)
+        </dd>
+         <dt >
+            @Html.DisplayNameFor(model => model.LuggageDescription)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.LuggageDescription)
+        </dd>
+       
+                </div>
+                <div class="col-6">
+       
+        <dt >
+            @Html.DisplayNameFor(model => model.Justification)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Justification)
+        </dd>
+      
+        
+        <dt >
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class="">
+            @Html.DisplayNameFor(model => model.RequesterName)
+        </dt>
+        <dd class="">
+            @Html.DisplayFor(model => model.RequesterName)
+        </dd>
+         <dt >
+            @Html.DisplayNameFor(model => model.CurrentReview)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.CurrentReview)
+        </dd>
+        <dt class="">
+            @Html.DisplayNameFor(model => model.ReqNumber)
+        </dt>
+        <dd class="">
+            @Html.DisplayFor(model => model.ReqNumber)
+        </dd>
+        <dt class="">
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+        <dd class="">
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+      
+           <dt>
+               @Html.DisplayNameFor(model => model.CarType)
+           </dt>
+           <dd>
+               @Html.DisplayFor(model => model.CarType)
+           </dd>
+           <dt>
+               @Html.DisplayNameFor(model => model.Notes)
+           </dt>
+           <dd>
+               @Html.DisplayFor(model => model.Notes)
+           </dd>
+       </div>
+       
+    </dl>
+</div>
+</div>
+</main>

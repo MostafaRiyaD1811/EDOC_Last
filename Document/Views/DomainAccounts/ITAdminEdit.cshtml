@@ -1,0 +1,93 @@
+﻿@using Document.ViewModels;
+@model Document.Models.DomainAccount
+
+@{
+    ViewData["Title"] = "Action";
+}
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100">
+            <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-5 ">
+                <h5 class="approval-title">You have been asked to approve this request</h5>
+            </div>
+
+            <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+                <div class="col-md-4">
+
+        <form asp-action="ITAdminEdit">
+            <div asp-validation-summary="ModelOnly" ></div>
+            <input type="hidden" asp-for="RequesterName" class="form-control" />
+
+            <input type="hidden" asp-for="RequesterPhone" class="form-control" />
+
+            <input type="hidden" asp-for="RequesterCode" class="form-control" />
+
+
+            <input type="hidden" asp-for="RequesterExtension" class="form-control" />
+
+            <input type="hidden" asp-for="RequesterDept" class="form-control" />
+
+
+            <input type="hidden" asp-for="RequesterJobTitle" class="form-control" />
+
+
+            <input type="hidden" asp-for="RequesterCompany" class="form-control" />
+
+            <input type="hidden" asp-for="ReqNumber" class="form-control" />
+
+          
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CreatedAt" class="form-control" />
+
+            <input type="hidden" asp-for="CurrentReviewer" class="form-control" />
+
+            <input type="hidden" asp-for="Status" class="form-control" />
+            <input type="hidden" asp-for="RequesterId" class="form-control" />
+            <div class="form-group">
+                <label asp-for="DisplayName" class="control-label"></label>
+                <input asp-for="DisplayName" class="form-control" />
+                <span asp-validation-for="DisplayName" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OU" class="control-label"></label>
+                <input asp-for="OU" class="form-control" />
+                <span asp-validation-for="OU" ></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="LoginName" class="control-label"></label>
+                <input asp-for="LoginName" class="form-control" />
+                <span asp-validation-for="LoginName" ></span>
+            </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="ApprovalNotes" class="control-lab">Add comment <span class="side-note">(Must leave your notes if the request to be declined)</span></label>
+                            <textarea asp-for="ApprovalNotes" class="form-control"></textarea>
+                            <span asp-validation-for="ApprovalNotes"></span>
+                        </div>
+                        <div class="d-flex justify-content-center m-4">
+                                <div>
+                                <input class="btn-gradient-approve" type="submit" name="ITAdminStatus" asp-for="ITAdminStatus" value="@ITAdminStatuses.Approve">
+                                </div>
+
+
+                                <div>
+                                <input class="btn-gradient-submit" type="submit" name="ITAdminStatus" asp-for="ITAdminStatus" value="@ITAdminStatuses.Decline">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+           
+                </div>
+            </div>
+            </div>
+</main>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

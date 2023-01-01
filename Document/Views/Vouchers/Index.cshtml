@@ -1,0 +1,173 @@
+﻿@model IEnumerable<Document.Models.Voucher>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">VOUCHERS</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+            </div>
+        </div>
+    </div>
+    <h2 class="subreq-title">Inbox</h2>
+
+
+    <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="form h-100">
+    <div class="table-responsive">
+                <span class="d-flex justify-content-end pb-3">
+                    <form method="get" asp-action="Index">
+                        <div class="input-group">
+                            <button type="submit" class="btn-search btn-outline-primary btn-sm"> <img src="~/Images/image.png" style="width: 2rem;" class="m-2" /> </button>
+                            <input class="Search-box" placeholder="Vendor Name or Supplier Number" name="searching" />
+                        </div>
+                    </form>
+                </span>
+        <table class="table text-center my-2">
+            <thead>
+                        <tr class="th">
+                            <th>
+                                @Html.DisplayNameFor(model => model.VendorName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Amount)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.InvoiceDate)
+                            </th>
+
+
+                            <th>
+                                Request Type
+                            </th>
+
+                            <th>
+                                Currency
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CurrentReviewerId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Approved)
+                            </th>
+
+                            
+                            <th>
+                              @Html.DisplayNameFor(model => model.BeneficiaryName)
+                            </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ApprovalNotes)
+                                </th>
+                            <th>
+                                Description
+                            </th>
+                           <th>
+                                Attachment
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+        </thead>
+        <tbody>
+               @if (Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="15" class="nodatayet">
+
+                                    There's no requests yet
+
+                                </td>
+
+                            </tr>
+                        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <tr class="even">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VendorName)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Amount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.InvoiceDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VoucherCurrency)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.CurrentReviewerId)
+                                </td>
+
+                                <td>
+                                    @if (item.Status == "Approved")
+                                    {
+                                        <div class="approved">
+                                            @Html.DisplayFor(modelItem => item.Approved)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Declined")
+                                    {
+                                        <div class="declined">
+                                            @Html.DisplayFor(modelItem => item.Approved)
+                                        </div>
+                                    }
+                                    else if (item.Status == "Pending")
+                                    {
+                                        <div class="pending">
+                                            @Html.DisplayFor(modelItem => item.Approved)
+                                        </div>
+                                    }
+
+                                </td>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BeneficiaryName)
+                    </td>
+                       
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApprovalNotes)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                      <td>
+                            <a asp-action="Files" class="btn-download btn-sm btn-outline-secondary" asp-route-id="@item.ReqNumber">Download</a>
+                    </td>
+                   
+                    @if ( !(item.Approved.Contains("Approved")) )
+                    {
+                        <td>
+                            <div class="btn-group me-2">
+                                <a asp-action="Details" class="btn btn-sm btn-outline-secondary details" asp-route-id="@item.Id">Details</a>
+                                <a asp-action="Edit" class="btn btn-sm btn-outline-secondary edit" asp-route-id="@item.Id">Edit</a>
+                                <a asp-action="Delete" class="btn btn-sm btn-outline-secondary delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                                <a asp-action="Details" class="btn btn-sm btn-outline-secondary details" asp-route-id="@item.Id">Details</a>
+                          
+                        </td>
+                    }
+                </tr>
+            }}
+        </tbody>
+    </table>
+            </div>
+        </div>
+
+</div>
+</main>

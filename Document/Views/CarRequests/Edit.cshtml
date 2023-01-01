@@ -1,0 +1,187 @@
+﻿@model Document.ViewModels.CarRequestViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Request Edit</h1>
+        @*<div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+        <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+        </div>
+        </div>*@
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+
+            <!--<div class="row">
+                <div class="col-md-4">-->
+
+            <div class="form h-100">
+                <form enctype="multipart/form-data" asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class=""></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="ReqNumber" />
+                    <input type="hidden" asp-for="RequesterName" />
+
+                    <div class="form-group form-input">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class=""></span>
+                    </div>
+
+                    <div class="form-group form-input">
+                        <label asp-for="MobileNo" class="control-label"></label>
+                        <input asp-for="MobileNo" class="form-control" />
+                        <span asp-validation-for="MobileNo" class=""></span>
+                    </div>
+                    <div class="form-group  form-input">
+                        <label asp-for="DepartureAddress" class="control-label"></label>
+                        <select asp-for="DepartureAddress" class="form-select">
+                            <option selected value="@null">Choose a city</option>
+                            <option asp-for="RequesterDept" value="Alexandria">Alexandria</option>
+                            <option asp-for="RequesterDept" value="Assiut">Assiut</option>
+                            <option asp-for="RequesterDept" value="Aswan">Aswan</option>
+                            <option asp-for="RequesterDept" value="Beheira">Beheira</option>
+                            <option asp-for="RequesterDept" value="Bani Suef">Bani Suef</option>
+                            <option asp-for="RequesterDept" value="Cairo">Cairo</option>
+                            <option asp-for="RequesterDept" value="Daqahliya">Daqahliya</option>
+                            <option asp-for="RequesterDept" value="Damietta">Damietta</option>
+                            <option asp-for="RequesterDept" value="Fayyoum">Fayyoum</option>
+                            <option asp-for="RequesterDept" value="Gharbiya">Gharbiya</option>
+                            <option asp-for="RequesterDept" value="Giza">Giza</option>
+                            <option asp-for="RequesterDept" value="Helwan">Helwan</option>
+                            <option asp-for="RequesterDept" value="Ismailia">Ismailia</option>
+                            <option asp-for="RequesterDept" value="Kafr El Sheikh">Kafr El Sheikh</option>
+                            <option asp-for="RequesterDept" value="Luxor">Luxor</option>
+                            <option asp-for="RequesterDept" value="Marsa Matrouh">Marsa Matrouh</option>
+                            <option asp-for="RequesterDept" value="Minya">Minya</option>
+                            <option asp-for="RequesterDept" value="Monofiya">Monofiya</option>
+                            <option asp-for="RequesterDept" value="New Valley">New Valley</option>
+                            <option asp-for="RequesterDept" value="North Sinai">North Sinai</option>
+                            <option asp-for="RequesterDept" value="Port Said">Port Said</option>
+                            <option asp-for="RequesterDept" value="Qalioubiya">Qalioubiya</option>
+                            <option asp-for="RequesterDept" value="Qena">Qena</option>
+                            <option asp-for="RequesterDept" value="Red Sea">Red Sea</option>
+                            <option asp-for="RequesterDept" value="Sharqiya">Sharqiya</option>
+                            <option asp-for="RequesterDept" value="Sohag">Sohag</option>
+                            <option asp-for="RequesterDept" value="Marsa Matrouh">Marsa Matrouh</option>
+                            <option asp-for="RequesterDept" value="Minya">Minya</option>
+                            <option asp-for="RequesterDept" value="Monofiya">Monofiya</option>
+                            <option asp-for="RequesterDept" value="New Valley">New Valley</option>
+                            <option asp-for="RequesterDept" value="South Sinai">North Sinai</option>
+                            <option asp-for="RequesterDept" value="Suez">Suez</option>
+                            <option asp-for="RequesterDept" value="Tanta">Tanta</option>
+                        </select>
+                        <span asp-validation-for="DepartureAddress" class=""></span>
+                    </div>
+
+                    <div class="form-group  form-input">
+                        <label asp-for="DestinationAddress" class="control-label"></label>
+                        <select asp-for="DestinationAddress" class="form-select">
+                            <option selected value="@null">Choose a city</option>
+                            <option asp-for="RequesterDept" value="Alexandria">Alexandria</option>
+                            <option asp-for="RequesterDept" value="Assiut">Assiut</option>
+                            <option asp-for="RequesterDept" value="Aswan">Aswan</option>
+                            <option asp-for="RequesterDept" value="Beheira">Beheira</option>
+                            <option asp-for="RequesterDept" value="Bani Suef">Bani Suef</option>
+                            <option asp-for="RequesterDept" value="Cairo">Cairo</option>
+                            <option asp-for="RequesterDept" value="Daqahliya">Daqahliya</option>
+                            <option asp-for="RequesterDept" value="Damietta">Damietta</option>
+                            <option asp-for="RequesterDept" value="Fayyoum">Fayyoum</option>
+                            <option asp-for="RequesterDept" value="Gharbiya">Gharbiya</option>
+                            <option asp-for="RequesterDept" value="Giza">Giza</option>
+                            <option asp-for="RequesterDept" value="Helwan">Helwan</option>
+                            <option asp-for="RequesterDept" value="Ismailia">Ismailia</option>
+                            <option asp-for="RequesterDept" value="Kafr El Sheikh">Kafr El Sheikh</option>
+                            <option asp-for="RequesterDept" value="Luxor">Luxor</option>
+                            <option asp-for="RequesterDept" value="Marsa Matrouh">Marsa Matrouh</option>
+                            <option asp-for="RequesterDept" value="Minya">Minya</option>
+                            <option asp-for="RequesterDept" value="Monofiya">Monofiya</option>
+                            <option asp-for="RequesterDept" value="New Valley">New Valley</option>
+                            <option asp-for="RequesterDept" value="North Sinai">North Sinai</option>
+                            <option asp-for="RequesterDept" value="Port Said">Port Said</option>
+                            <option asp-for="RequesterDept" value="Qalioubiya">Qalioubiya</option>
+                            <option asp-for="RequesterDept" value="Qena">Qena</option>
+                            <option asp-for="RequesterDept" value="Red Sea">Red Sea</option>
+                            <option asp-for="RequesterDept" value="Sharqiya">Sharqiya</option>
+                            <option asp-for="RequesterDept" value="Sohag">Sohag</option>
+                            <option asp-for="RequesterDept" value="Marsa Matrouh">Marsa Matrouh</option>
+                            <option asp-for="RequesterDept" value="Minya">Minya</option>
+                            <option asp-for="RequesterDept" value="Monofiya">Monofiya</option>
+                            <option asp-for="RequesterDept" value="New Valley">New Valley</option>
+                            <option asp-for="RequesterDept" value="South Sinai">North Sinai</option>
+                            <option asp-for="RequesterDept" value="Suez">Suez</option>
+                            <option asp-for="RequesterDept" value="Tanta">Tanta</option>
+                        </select>
+                        <span asp-validation-for="DestinationAddress" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="Departure" class="control-label"></label>
+                        <input asp-for="Departure" class="form-control" />
+                        <span asp-validation-for="Departure" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="ReturnBack" class="control-label"></label>
+                        <input asp-for="ReturnBack" class="form-control" />
+                        <span asp-validation-for="ReturnBack" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="LuggageDescription" class="control-label"></label>
+                        <input asp-for="LuggageDescription" class="form-control" />
+                        <span asp-validation-for="LuggageDescription" class=""></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="Attach" class="custom-file-label"></label>
+                        <input asp-for="Attach" type="file" accept="application/pdf,application/msword,
+                   application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="form-control custom-file-input" />
+                        <span asp-validation-for="Attach" class=""></span>
+                    </div>
+
+
+                    <div class="form-group form-input">
+                        <label asp-for="CarType" class="control-label"></label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="CarType" value="Sedan Car" asp-for="CarType" class="form-control">Sedan Car
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="CarType" value="Microbus" asp-for="CarType" class="form-control">Microbus
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="CarType" value="Minibus" asp-for="CarType" class="form-control">Minibus
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="CarType" value="Bus" asp-for="CarType" class="form-control">Bus
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="CarType" value="Pickup (Single cabin)" asp-for="CarType" class="form-control">Pickup (Single cabin)
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="CarType" value="pickup (Duple cabin)" asp-for="CarType" class="form-control">pickup (Duple cabin)
+                        </div>
+                    </div>
+                    <div class="form-group form-input">
+                        <label asp-for="Justification" class="control-label"></label>
+                        <textarea asp-for="Justification" class="form-control"></textarea>
+                        <span asp-validation-for="Justification" class=""></span>
+                    </div>
+                    <div style="margin-left:90%">
+                        <input type="submit" value="Edit" class="btn-gradient-submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,76 @@
+﻿@model Document.Models.DomainAccount
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">Request Edit</h1>
+        @*<div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+        <a asp-action="Create" class="btn-gradient-create">CREATE NEW</a>
+        </div>
+        </div>*@
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+
+            <!--<div class="row">
+                <div class="col-md-4">-->
+
+            <div class="form h-100">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class=""></div>
+                    <div class="form-group">
+                        <label asp-for="RequesterName" class="control-label"></label>
+                        <input asp-for="RequesterName" class="form-control" />
+                        <span asp-validation-for="RequesterName" class=""></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RequesterPhone" class="control-label"></label>
+                        <input asp-for="RequesterPhone" class="form-control" />
+                        <span asp-validation-for="RequesterPhone" class=""></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RequesterCode" class="control-label"></label>
+                        <input asp-for="RequesterCode" class="form-control" />
+                        <span asp-validation-for="RequesterCode" class=""></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RequesterExtension" class="control-label"></label>
+                        <input asp-for="RequesterExtension" class="form-control" />
+                        <span asp-validation-for="RequesterExtension" class=""></span>
+                    </div>
+           
+                    <input type="hidden" asp-for="ReqNumber" class="form-control" />
+
+
+
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="CreatedAt" class="form-control" />
+
+                    <input type="hidden" asp-for="CurrentReviewer" class="form-control" />
+
+                    <input type="hidden" asp-for="CurrentReviewerId" class="form-control" />
+
+                    <input type="hidden" asp-for="Status" class="form-control" />
+                    <input type="hidden" asp-for="RequesterId" class="form-control" />
+
+                    <div style="margin-left:90%">
+                        <input type="submit" value="Edit" class="btn-gradient-submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

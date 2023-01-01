@@ -1,0 +1,63 @@
+﻿@model Document.Models.Requester
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    body {
+        font-family: 'pilat light';
+        src: url('pilat light.otf') format('opentype');
+        font-palette: dark;
+    }
+
+
+    @@font-face {
+        font-family: 'pilat light';
+        src: url('pilat light.otf') format('opentype');
+    }
+
+
+</style>
+<h1>Create</h1>
+
+<h4>Requester</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" ></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MgrName" class="control-label"></label>
+                <input asp-for="MgrName" class="form-control" />
+                <span asp-validation-for="MgrName" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MgrCode" class="control-label"></label>
+                <input asp-for="MgrCode" class="form-control" />
+                <span asp-validation-for="MgrCode" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LDap" class="control-label"></label>
+                <input asp-for="LDap" class="form-control" />
+                <span asp-validation-for="LDap" ></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

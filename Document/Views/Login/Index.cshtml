@@ -1,0 +1,170 @@
+﻿@model LoginModel
+@{
+	ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>LOGIN</title>
+
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link href="~/Images/favicon.ico" rel="icon">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!--===============================================================================================-->
+
+	<style>
+		body, html {
+			height: 100%;
+			font-family: Ubuntu-Regular, sans-serif;
+		}
+
+		.iconaside1 {
+			background: url(images/Person.svg);
+			background-size: 25%;
+			background-repeat: no-repeat;
+			background-position-y: 53%;
+			background-position-x: -3.7%;
+		}
+
+		.iconaside2 {
+			background: url(images/Lock.svg);
+			background-size: 23%;
+			background-repeat: no-repeat;
+			background-position-y: 53%;
+			background-position-x: -2.2%;
+		}
+
+		a {
+			font-family: Pilat-Demi;
+			font-size: 14px;
+			line-height: 1.7;
+			color: #666666;
+			margin: 0px;
+			transition: all 0.4s;
+			-webkit-transition: all 0.4s;
+			-o-transition: all 0.4s;
+			-moz-transition: all 0.4s;
+		}
+
+			a:focus {
+				outline: none !important;
+			}
+
+			a:hover {
+				text-decoration: none;
+				color: #fff;
+			}
+
+
+	</style>
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/cover.jpg')">
+
+
+			<!-- ======= Header ======= -->
+			<header id="header" class="fixed-top ">
+				<div class="container d-flex align-items-center justify-content-lg-between"  style="margin-top:50px;width:1850px;">
+					<a href="index.html" class="logo me-auto me-lg-0"><img src="images/logo_footer.png" alt="" class="img-fluid"></a>
+				</div>
+			</header><!-- End Header -->
+
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-25">
+					Login
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5" method="post">
+					<div asp-validation-summary="ModelOnly" ></div>
+					<div class="wrap-input100 validate-input" data-validate="Enter username" type="text" id="username">
+						<input class="input100" type="text" name="username" placeholder="User name">
+@*						<label asp-for="Username">User Name</label>
+*@						<span asp-validation-for="Username" class="focus-input100 iconaside1" data-placeholder=""></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input asp-for="Password" class="input100" type="password" placeholder="Password" id="username">
+						<span asp-validation-for="Password"  class="focus-input100 iconaside2" data-placeholder=""></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn" type="submit">
+							Login
+						</button>
+					</div>
+
+				</form>
+				@*<form method="post">
+					<div asp-validation-summary="ModelOnly" ></div>
+					<div class="form-group first">
+						<input asp-for="Username" type="text" class="form-control " id="username">
+						<label asp-for="Username">User Name</label>
+						<span asp-validation-for="Username" ></span>
+
+					</div>
+					<div class="form-group last mb-3">
+						<input asp-for="Password" type="password" class="form-control " id="username">
+						<label asp-for="Password">Password</label>
+						<span asp-validation-for="Password" ></span>
+
+					</div>
+					<br />
+
+
+					<input type="submit" value="Log In" class="btn btn-block ">
+
+
+
+				</form>*@
+			</div>
+			<!-- ======= Footer ======= -->
+		</div>
+
+	</div>
+	</div>
+
+	<div id="dropDownSelect1"></div>
+
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

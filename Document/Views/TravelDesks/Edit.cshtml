@@ -1,0 +1,249 @@
+﻿@model Document.ViewModels.TravelDeskViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+
+    .input-validation-error {
+        border-bottom: 2px solid #FF5F5F !important;
+        color: #FF5F5F;
+        font-family: Pilat-demi;
+    }
+
+</style>
+
+
+<main class="col-md-9 col-lg-10 col-sm-10 px-md-4" style=" width:90vw;">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+        <h1 class="Req-title">VOUCHERS</h1>
+       
+    </div>
+    <h2 class="subreq-title">Create New Request</h2>
+
+    <div class="container-fluid">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+
+            <!--<div class="row">
+                <div class="col-md-4">-->
+
+            <div class="form h-100">
+        <form enctype="multipart/form-data" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" ></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="ReqNumber" />
+                    <input type="hidden" asp-for="Request" />
+                    <input type="hidden" asp-for="RequesterDept" />
+                    <input type="hidden" asp-for="Title" />
+            <div class="form-group form-input">
+
+                <div class="form-group1 d-inline form-input">
+                    <input type="checkbox" class="form-check-input mx-3" onchange="yesnoCheck2(this);" name="Requests" value="Accommodation" asp-for="Requests[0]" class="form-control">Accommodation
+
+                </div>
+                <div class="form-group1  d-inline form-input">
+                    <input type="checkbox" class="form-check-input mx-3" onchange="yesnoCheck1(this);" name="Requests" value="Flight Ticket" asp-for="Requests[1]" class="form-control">Flight Ticket
+
+                </div>
+                <div class="form-group1  d-inline form-input">
+                    <input type="checkbox" class="form-check-input mx-3" onchange="yesnoCheck(this);" name="Requests" value="Visa" asp-for="Requests[2]" class="form-control">Visa
+
+                </div>
+               
+            </div>
+            <br />
+            <h4>Requester Data:</h4>
+            <div class="form-group form-input">
+
+
+                <input type="checkbox" checked class="form-check-input mx-3" onchange="yesnoCheckR(this);" >Requested for me
+
+
+            </div>
+            <div id="ifYesR" style="display: none;" class="form-group  form-input">
+                <label asp-for="RequesterCode" class="control-label"></label>
+                <input asp-for="RequesterCode" class="form-control" />
+                <span asp-validation-for="RequesterCode" ></span>
+            </div>
+            @*<div class="form-group  form-input">
+            <label asp-for="RequesterDept" class="control-label"></label>
+            <select asp-for="RequesterDept" class="form-select">
+            <option selected value="@null">Choose your Department</option>
+            <option asp-for="RequesterDept" value="ADMINSTRATION">ADMINSTRATION</option>
+            <option asp-for="RequesterDept" value="HR">HR</option>
+            <option asp-for="RequesterDept" value="IT">IT</option>
+            <option asp-for="RequesterDept" value="FINANCE">FINANCE</option>
+            <option asp-for="RequesterDept" value="PORCUERMENT">PORCUERMENT</option>
+            <option asp-for="RequesterDept" value="SECURITY">SECURITY</option>
+            <option asp-for="RequesterDept" value="SAFETY">SAFETY</option>
+            <option asp-for="RequesterDept" value="CUSTOMER SERVICE">CUSTOMER SERVICE</option>
+            <option asp-for="RequesterDept" value="COMMERCIAL">COMMERCIAL</option>
+            <option asp-for="RequesterDept" value="OPERATIONS">OPERATIONS</option>
+            </select>
+            <span asp-validation-for="RequesterDept" ></span>
+            </div>*@
+
+
+            <div class="form-group  form-input">
+                <label asp-for="Nationality" class="control-label"></label>
+                <input asp-for="Nationality" class="form-control" />
+                <span asp-validation-for="Nationality" ></span>
+            </div>
+            <div class="form-group  form-input">
+                <label asp-for="RequestPurpose" class="control-label"></label>
+                <input asp-for="RequestPurpose" class="form-control" />
+                <span asp-validation-for="RequestPurpose" ></span>
+            </div>
+            <div class="form-group1 form-input">
+                <label asp-for="Attach" class="custom-file-label"></label>
+                <input asp-for="Attach" class="form-control custom-file-input" />
+                <span asp-validation-for="Attach" ></span>
+            </div>
+            <div id="ifYes2" style="display: none;" class="form-group1  my-3">
+
+                <h4>Hotel Accommodation:</h4>
+
+                <div class="form-group  form-input">
+                    <label asp-for="CheckIn" class="control-label"></label>
+                    <input asp-for="CheckIn" id="CheckIn" class="form-control" />
+                    <span asp-validation-for="CheckIn" ></span>
+                </div>
+                <div class="form-group  form-input">
+                    <label asp-for="CheckOut" class="control-label"></label>
+                    <input asp-for="CheckOut" id="CheckOut" class="form-control" />
+                    <span asp-validation-for="CheckOut" id="Check" ></span>
+                </div>
+                <div class="form-group  form-input">
+                    <label asp-for="MissionAddress" class="control-label"></label>
+                    <input asp-for="MissionAddress" class="form-control" />
+                    <span asp-validation-for="MissionAddress" ></span>
+                </div>
+                <div class="form-group  form-input">
+                    <label asp-for="MethodOfPayment" class="control-label"></label>
+
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="MethodOfPayment" value="Cash" asp-for="MethodOfPayment" class="form-control">Cash
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="MethodOfPayment" value="By Company" asp-for="MethodOfPayment" class="form-control">By Company
+                    </div>
+                </div>
+            </div>
+            <div id="ifYes1" style="display: none;" class="form-group1 my-4">
+
+                <h4>Flight Ticket:</h4>
+                <div class="form-group  form-input">
+                    <label asp-for="TripDirection" class="control-label"></label>
+                    <input asp-for="TripDirection" class="form-control" />
+                    <span asp-validation-for="TripDirection" ></span>
+                </div>
+                <div class="form-group  form-input">
+                    <label asp-for="Departure" class="control-label"></label>
+                    <input id="StartDate" asp-for="Departure" class="form-control" />
+                    <span asp-validation-for="Departure" ></span>
+                </div>
+                <div class="form-group  form-input">
+                    <label asp-for="ReturnBack" class="control-label"></label>
+                    <input id="EndDate" asp-for="ReturnBack" class="form-control" />
+                    <span id="name-msg" asp-validation-for="ReturnBack" ></span>
+                </div>
+            </div>
+            <div id="ifYes" style="display: none;" class="form-group1  my-3">
+                <h4>Visa:</h4>
+                <div class="form-group  form-input">
+                    <label asp-for="CostAllocation" class="control-label"></label>
+                    <input asp-for="CostAllocation" class="form-control" />
+                    <span asp-validation-for="CostAllocation" ></span>
+                </div>
+                <div class="form-group  form-input">
+                    <label asp-for="DestinationCountry" class="control-label"></label>
+                    <input asp-for="DestinationCountry" class="form-control" />
+                    <span asp-validation-for="DestinationCountry" ></span>
+                </div>
+                <div class="form-group  form-input">
+                    <label asp-for="ExpectedTravelTime" class="control-label"></label>
+                    <input asp-for="ExpectedTravelTime" class="form-control" />
+                    <span asp-validation-for="ExpectedTravelTime" ></span>
+                </div>
+                <div class="form-group  form-input">
+                    <label asp-for="Remarks" class="control-label"></label>
+                    <input asp-for="Remarks" class="form-control" />
+                    <span asp-validation-for="Remarks" ></span>
+                </div>
+
+
+
+
+
+            </div>
+                    <div class="form-group1 form-input">
+                        <input type="submit" value="Submit" class="btn-gradient-submit" style="margin-left:90%" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+@section Scripts {
+    <script>
+        function yesnoCheck(that) {
+            if (that.checked == true) {
+
+                document.getElementById("ifYes").style.display = "block";
+            } else {
+                document.getElementById("ifYes").style.display = "none";
+            }
+        }
+        function yesnoCheck1(that) {
+            if (that.checked == true) {
+
+                document.getElementById("ifYes1").style.display = "block";
+            } else {
+                document.getElementById("ifYes1").style.display = "none";
+            }
+        }
+        function yesnoCheck2(that) {
+            if (that.checked == true) {
+
+                document.getElementById("ifYes2").style.display = "block";
+            } else {
+                document.getElementById("ifYes2").style.display = "none";
+            }
+        }
+        function yesnoCheckR(that) {
+            if (that.checked == true) {
+
+                document.getElementById("ifYesR").style.display = "none";
+            } else {
+                document.getElementById("ifYesR").style.display = "block";
+            }
+        }
+    </script>
+    <script>
+        $("#EndDate").change(function () {
+            var startDate = document.getElementById("StartDate").value;
+            var endDate = document.getElementById("EndDate").value;
+
+            if (Date.parse(endDate) <= Date.parse(startDate)) {
+                var msg = document.createTextNode("Return back date should be greater than Departure date");
+              document.getElementById('name-msg').appendChild(msg);
+               document.getElementById("EndDate").value = "";
+            }
+        });</script>
+         <script>
+        $("#CheckOut").change(function () {
+            var startDate = document.getElementById("CheckIn").value;
+            var endDate = document.getElementById("CheckOut").value;
+
+            if (Date.parse(endDate) <= Date.parse(startDate)) {
+                var msg = document.createTextNode("Return back date should be greater than Departure date");
+              document.getElementById('Check').appendChild(msg);
+                document.getElementById("CheckOut").value = "";
+            }
+        });</script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
